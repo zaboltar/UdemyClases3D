@@ -9,6 +9,8 @@ public class LinearScript : MonoBehaviour {
         string [] enunciadoHistoria;
         int storyProgression = 1;
         string [] opciones;
+        
+        string choice;
 
 	// Use this for initialization
 	void Start () {
@@ -18,29 +20,25 @@ public class LinearScript : MonoBehaviour {
 
   void OnUserInput(string input) {
     
-    
-
-    }
-
-	// Update is called once per frame
-	void Update () {
-		string choice;
-
-            Terminal.WriteLine(enunciadoHistoria[storyProgression]);
-            
-            choice = Terminal.ReadLine();
-
-            if (choice == opciones[storyProgression]) {
-                storyProgression++;
-            } else {
+    if (choice == opciones[storyProgression]) {
+      storyProgression++;
+    } else {
                 storyProgression = 0;
                 isDone = true;
                 Terminal.ClearScreen();
                 Terminal.WriteLine(enunciadoHistoria[storyProgression]);
-            }
 
-            Terminal.ReadKey();
-	}
+    }
+
+      }
+
+	// Update is called once per frame
+	void Update () {
+
+  }
+		
+
+         
 
 
 	void Initialize() {
@@ -612,8 +610,9 @@ Escher art by Michael Naylor
 StoryLine by Cleto Thar
 Web Adaptation by Esen Espinoza
 Unity Adaptation by WM2000 and Cleto Thar
+WebGL export for itch.io by Fernando G. Alcalá
 ");
-            Terminal.ReadLine();
+            //Terminal.ReadLine();
             Terminal.ClearScreen();
         }
 
